@@ -1,37 +1,21 @@
-// let  a=10;
-
-// let b =20;
-// let result= a+b;
-// console.log(result);
-
-function task1() {
-    console.log("task1 started");
-    let start = Date.now();
-    let delay = 2500;
-    let end = start + delay;
-    console.log("task1 executing");
-    while (Date.now() <= end) {}
-    console.log("task1 completed");
+function first () {
+    function second(){
+        function third(){
+            console.log("third");
+            
+        }
+       
+        console.log("second");
+        third() 
+    }
+    
+    console.log("first");
+    second()
 }
-
-function task2() {
-    console.log("task2 started");
-    let start = Date.now();
-    let delay = 4000;
-    let end = start + delay;
-    console.log("task2 executing");
-    while (Date.now() <= end) {}
-    console.log("task2 completed");
-}
-function task3() {
-    console.log("task3 started");
-    let start = Date.now();
-    let delay = 5500;
-    let end = start + delay;
-    console.log("task3 executing");
-    while (Date.now() <= end) {}
-    console.log("task3 completed");
-}
-task1();
-setTimeout(task2,2000)
-task3();
+first()
+// when we execute the global execution context is created and indside it we call fuction first 
+//  the execution context for first() is created  where we  log "first" and then call second function
+// the execution context for second  is created where it logs second and call third fuction 
+// the  execution context for third is created and its log third when it completes execution it's execution context is popped out of call stack 
+// after the execution of second function it is popped out from the call stack 
+// then the  first function completes its execution and it is pooped out from the call stack and the call stack become empty
